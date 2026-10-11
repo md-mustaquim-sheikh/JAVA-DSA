@@ -39,10 +39,13 @@ class Box {
         System.out.println(this.h + " " + this.l + " " + this.w);
     }
 }
+
+// Single level Inheritance 
 class BoxWeight extends Box{
     double weight;
 
     BoxWeight(){
+        super();
         this.weight = -1;
     }
 
@@ -58,11 +61,26 @@ class BoxWeight extends Box{
 
 }
 
+// Multi Level Inheritance
+class BoxValue extends BoxWeight{
+    double value;
+    BoxValue(){
+        super();
+        this.value = 0;
+    }
+
+    BoxValue(double h, double w, double l, double weight, double value){
+        super(h,w,l,weight);
+        this.value = value;
+    }
+}
+
 class A{
     public void display(){
         System.out.println("This is class A");
     }
 }
+
 class B extends A{
     public void show(){
         System.out.println("This is class B");
