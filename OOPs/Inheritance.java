@@ -1,14 +1,15 @@
 // package OOPs;
 public class Inheritance {
-
-    public static void main(String[] args){
-        BoxWeight bw = new BoxWeight(1,2,3,4);
+    public static void main(String[] args) {
+        BoxWeight bw = new BoxWeight(1, 2, 3, 4);
         System.out.println(bw.weight);
         bw.display();
 
         // Box box1 = new BoxWeight();
-        // System.out.println(box1.wight);      // Not able to access bcoz box class have no idea about weight
-        // BoxWeight box2 = new Box(2);         // Not Allowed bcoz weight variable not initialized
+        // System.out.println(box1.wight); // Not able to access bcoz box class have no
+        // idea about weight
+        // BoxWeight box2 = new Box(2); // Not Allowed bcoz weight variable not
+        // initialized
     }
 }
 
@@ -17,80 +18,76 @@ class Box {
     double h;
     double w;
     double l;
-    Box(){
+
+    Box() {
         this.h = -1;
         this.w = -1;
         this.l = -1;
     }
 
-    Box(double h, double w, double l){
+    Box(double h, double w, double l) {
         this.h = h;
         this.w = w;
         this.l = l;
     }
 
-    Box(double side){
+    Box(double side) {
         this.h = side;
         this.w = side;
         this.l = side;
     }
 
-    void message(){
+    void message() {
         System.out.println(this.h + " " + this.l + " " + this.w);
     }
 }
 
-// Single level Inheritance 
-class BoxWeight extends Box{
+// Single level Inheritance
+class BoxWeight extends Box {
     double weight;
 
-    BoxWeight(){
+    BoxWeight() {
         super();
         this.weight = -1;
     }
 
-    BoxWeight(double h, double w, double l, double weight){                              // Uses of Super Keyword in Inheritance
-        super(h,w,l);                                                                    // 1. Use to acess the parent class constructor
+    BoxWeight(double h, double w, double l, double weight) {                                // Uses of Super Keyword in Inheritance
+        super(h, w, l);                                                                     // 1. Use to acess the parent class constructor
         this.weight = weight;
     }
 
-    void display(){
-        System.out.println(super.h +" "+ super.l +" "+ super.w +" "+ this.weight);      // 2. Use to access parent class variable
-        super.message();                                                                // 3. Use to access parent class method 
+    void display() {
+        System.out.println(super.h + " " + super.l + " " + super.w + " " + this.weight);    // 2. Use to access parent class variable
+        super.message();                                                                    // 3. Use to access parent class method
     }
 
 }
 
 // Multi Level Inheritance
-class BoxValue extends BoxWeight{
+class BoxValue extends BoxWeight {
     double value;
-    BoxValue(){
+
+    BoxValue() {
         super();
         this.value = 0;
     }
 
-    BoxValue(double h, double w, double l, double weight, double value){
-        super(h,w,l,weight);
+    BoxValue(double h, double w, double l, double weight, double value) {
+        super(h, w, l, weight);
         this.value = value;
     }
 }
 
-class A{
-    public void display(){
-        System.out.println("This is class A");
+// Hierarchical Inheritance
+class BoxColor extends BoxWeight {
+    String color;
+
+    BoxColor() {
+        this.color = null;
     }
-}
 
-class B extends A{
-    public void show(){
-        System.out.println("This is class B");
-    } 
-}
-
-class C extends B{
-    public void print(){
-        System.out.println("This is class C");
-        super.display();
-        super.show();
+    BoxColor(double h, double w, double l, double weight, String color) {
+        super(h, w, l, weight);
+        this.color = null;
     }
 }
