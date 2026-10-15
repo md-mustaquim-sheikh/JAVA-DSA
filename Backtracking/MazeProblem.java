@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 public class MazeProblem {
     public static void main(String[] args) {
-        System.out.println(mazeCount(3, 3));
         boolean[][] maze = { { true, true, true },
                 { true, true, true },
                 { true, true, true },
@@ -23,7 +22,6 @@ public class MazeProblem {
             System.out.println(p);
             return ;
         }
-        ArrayList<String> ans = new ArrayList<>();
         if (!maze[r][c]) {
             return;
         }

@@ -6,10 +6,22 @@ public class Maths {
     public static void main(String[] args) {
 
         // System.out.println(commonFactors(6, 12));
-        System.out.println(fizzBuzz(3));
+        System.out.println(maxSumOfSquares(2, 3));
     }
-    static int numberOfSteps(int num) {
-        
+
+    // https://leetcode.com/problems/maximize-sum-of-squares-of-digits/
+    static String maxSumOfSquares(int num, int sum) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 1; i <= num; i++) {
+            for (int j = 9; j >= 0; j--) {
+                if (j <= sum ) {
+                    ans.append(j);
+                    sum -= j;
+                    break;
+                }
+            }
+        }
+        return ans.toString();
     }
 
     // pno - 412
