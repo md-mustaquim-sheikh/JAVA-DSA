@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.lang.Math;
 
@@ -6,7 +7,24 @@ public class Maths {
     public static void main(String[] args) {
 
         // System.out.println(commonFactors(6, 12));
-        System.out.println(maxSumOfSquares(2, 3));
+        System.out.println(isHappy(2));
+    }
+
+    // https://leetcode.com/problems/happy-number/
+    static boolean isHappy(int n) {
+        HashSet<Integer> seen = new HashSet<>();
+
+        while (n != 1 && !seen.contains(n)) {
+            seen.add(n);
+            int temp = 0;
+            while (n > 0) {
+                int digit = n % 10;
+                n /= 10;
+                temp += digit * digit;
+            }
+            n = temp;
+        }
+        return n == 1;
     }
 
     // https://leetcode.com/problems/maximize-sum-of-squares-of-digits/
@@ -14,7 +32,7 @@ public class Maths {
         StringBuilder ans = new StringBuilder();
         for (int i = 1; i <= num; i++) {
             for (int j = 9; j >= 0; j--) {
-                if (j <= sum ) {
+                if (j <= sum) {
                     ans.append(j);
                     sum -= j;
                     break;
@@ -26,7 +44,8 @@ public class Maths {
 
     // pno - 412
     // Input: n = 15
-    // Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+    // Output:
+    // ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
     static List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
@@ -53,13 +72,13 @@ public class Maths {
         // return n==1;
     }
 
-    // pno - 
+    // pno -
     static int commonFactors(int a, int b) {
         int commonfactors = 0;
         int n = a > b ? a : b;
         for (int i = 1; i <= Math.sqrt(n); i++) {
             if (a % i == 0 && b % i == 0) {
-                commonfactors ++;
+                commonfactors++;
             }
         }
         return commonfactors;

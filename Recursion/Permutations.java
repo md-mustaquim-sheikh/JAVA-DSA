@@ -6,9 +6,25 @@ import java.util.List;
 
 public class Permutations {
     public static void main(String[] args) {
-        int[] nums = { 1,1,2 };
-        boolean[] check = new boolean[nums.length];
-        System.out.println(permutationBacktrack(nums, new ArrayList<>(), check));
+        List<String> ans = new ArrayList<>();
+        boolean[] check = new boolean[3 + 1];
+        getPermutation(3, ans, "", check);
+        System.out.println(ans);
+    }
+
+    static void getPermutation(int n, List<String> ans, String list, boolean[] check) {
+        if (list.length() == n) {
+            ans.add(list);
+            return;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (!check[i]) {
+                check[i] = true;
+                getPermutation(n, ans, list + i, check);
+                check[i] = false;
+            }
+        }
     }
 
     static int permutationCount(String s, String p) {
@@ -24,7 +40,7 @@ public class Permutations {
         }
         return count;
     }
-    
+
     // https://leetcode.com/problems/permutations-ii/
     static void permutationBacktrack(int[] nums, ArrayList<Integer> list, List<List<Integer>> ans, boolean[] check) {
         if (list.size() == nums.length) {
