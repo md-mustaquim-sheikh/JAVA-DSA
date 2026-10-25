@@ -5,9 +5,56 @@ import java.lang.Math;
 
 public class Maths {
     public static void main(String[] args) {
+        int[] nums = { 4, 8, 2, 8 };
+        // System.out.println(isPrime(2));
+        System.out.println(maximumPrimeDifference(nums));
 
-        // System.out.println(commonFactors(6, 12));
-        System.out.println(isHappy(2));
+    }
+
+    // https://leetcode.com/problems/maximum-prime-difference/
+    static int maximumPrimeDifference(int[] nums) {
+        int i = 0, j = nums.length - 1;
+        while (!isPrime(nums[i])) {
+            i++;
+        }
+        while (!isPrime(nums[j])) {
+            j--;
+        }
+        return j-i;
+    }
+
+    // https://leetcode.com/problems/count-primes/
+    static int countPrimes(int n) {
+        boolean[] primes = new boolean[n];
+
+        for (int i = 2; i * i < n; i++) {
+            if (!primes[i]) {
+                for (int j = i * 2; j < primes.length; j += i) {
+                    primes[j] = true;
+                }
+
+            }
+
+        }
+        int count = 0;
+        for (int i = 2; i < primes.length; i++) {
+            if (!primes[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // https://leetcode.com/problems/happy-number/
