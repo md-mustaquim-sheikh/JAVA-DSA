@@ -6,8 +6,7 @@ import java.lang.Math;
 public class Maths {
     public static void main(String[] args) {
         int[] nums = { 4, 8, 2, 8 };
-        // System.out.println(isPrime(2));
-        System.out.println(maximumPrimeDifference(nums));
+        System.out.println(7&(1<<4));
 
     }
 
@@ -20,7 +19,7 @@ public class Maths {
         while (!isPrime(nums[j])) {
             j--;
         }
-        return j-i;
+        return j - i;
     }
 
     // https://leetcode.com/problems/count-primes/
