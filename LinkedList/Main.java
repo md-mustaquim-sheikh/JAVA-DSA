@@ -2,17 +2,20 @@ package LinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        CustomLL list = new CustomLL();
+        DLL list = new DLL();
         list.insertFirst(12);
         list.insertFirst(23);
         list.insertFirst(78);
+        list.insertFirst(42);
         list.insertlast(99);
-        list.insert(100, 10);
+        list.insertlast(100);
+        list.insert(33, 3);
+        list.insertAfter(100, 89);
+        list.insertAfter(42, 45);
         list.diplay();
-        System.out.println(list.deleteFirst());
-        list.diplay();
-        System.out.println(list.delete(4));
-        list.diplay();
-        System.out.println(list.getValue(3));
+        list.diplayReverse();
+        
+        System.out.println(list.getValue(124));
+        
     }
 }
